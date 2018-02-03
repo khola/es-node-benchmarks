@@ -2,4 +2,4 @@
 
 1. Simple benchmarking of MAP vs OBJECT performance.
 
-    node index.js
+`node index.js`
