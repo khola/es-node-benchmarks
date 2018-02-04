@@ -7,20 +7,18 @@ const objStrings = {};
 const mapObjects = new Map();
 const objObjects = {};
 
-const length = 100000;
+const numberOfItems = 100000;
 
 const generateRandomString = () => {
 	let text = "";
 	const possible = "ABCDEFGHiJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
 	for (let i = 0; i < 5; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
-
 	return text;
 };
 
 const arrayOfRandomObjects = (() => {
 	const objects = [];
-	for (let i = 0; i < length; i++) {
+	for (let i = 0; i < numberOfItems; i++) {
 		objects[i] = {};
 		for (let ii = 0; ii < 5; ii++) {
 			objects[i][generateRandomString()] = generateRandomString();
@@ -31,7 +29,7 @@ const arrayOfRandomObjects = (() => {
 
 const arrayOfRandomIndexes = (() => {
 	const indexes = [];
-	for (let i = 0; i < length; i++) {
+	for (let i = 0; i < numberOfItems; i++) {
 		indexes.push("key" + i + generateRandomString());
 	}
 	return indexes;
