@@ -71,6 +71,24 @@ const mapTestGetString = {
 	}
 };
 
+const objTestHasString = {
+	name: "Object value has property benchmark, string keys only",
+	method: () => {
+		arrayOfRandomIndexes.forEach(el => {
+			let a = objStrings.hasOwnProperty(el);
+		});
+	}
+};
+
+const mapTestHasString = {
+	name: "Map value has property, string keys only",
+	method: () => {
+		arrayOfRandomIndexes.forEach(el => {
+			let a = mapStrings.has(el);
+		});
+	}
+};
+
 const objTestSetObject = {
 	name: "Object value set benchmark, object keys only",
 	method: () => {
@@ -134,10 +152,26 @@ const createSuite = (firstTest, secondTest) => {
 		.on("complete", () => benchmarksLogger.log());
 };
 
-createSuite(objTestSetString, mapTestSetString).run({ async: false });
-createSuite(objTestGetString, mapTestGetString).run({ async: false });
+createSuite(objTestSetString, mapTestSetString).run({
+	async: false
+});
+createSuite(objTestGetString, mapTestGetString).run({
+	async: false
+});
 
-createSuite(objTestSetObject, mapTestSetObject).run({ async: false });
-createSuite(objTestGetObject, mapTestGetObject).run({ async: false });
+createSuite(objTestHasString, mapTestHasString).run({
+	async: false
+});
 
-createSuite(objTestIteration, mapTestIteration).run({ async: false });
+
+createSuite(objTestSetObject, mapTestSetObject).run({
+	async: false
+});
+
+createSuite(objTestGetObject, mapTestGetObject).run({
+	async: false
+});
+
+createSuite(objTestIteration, mapTestIteration).run({
+	async: false
+});
